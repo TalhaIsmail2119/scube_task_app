@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:scube_task_app/features/log_in/log_in_screen.dart';
+
+import 'config/app_route/routes_config.dart';
+import 'config/theme/app_theme_config.dart';
 
 void main() {
   runApp(const MyApp());
@@ -11,14 +15,18 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Scube Task App',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+    return ScreenUtilInit(
+      designSize: const Size(360, 800),
+      child: MaterialApp.router(
+        title: 'Scube Task App',
+        routerConfig: appRoute,
+        theme: AppThemeConfig.lightTheme,
+        darkTheme: AppThemeConfig.darkTheme,
+        themeMode: ThemeMode.system,
       ),
-      home: LogInScreen(),
     );
   }
 }
+
 
 
