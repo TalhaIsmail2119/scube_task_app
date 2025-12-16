@@ -21,8 +21,11 @@ class AppTheme {
 
   // ===== Text Colors =====
   static const Color textPrimary = Color(0xFFFFFFFF);
+  static const Color dataTitle = Color(0xFF04063E);
+
   static const Color textOnPrimary   = Color(0xFF082438);
   static const Color textSecondary = Color(0xFF9AA9BC);
+  static const Color texttirtiary = Color(0xFF5E5E5E);
 
 
   // ===== Status Colors =====

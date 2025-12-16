@@ -124,8 +124,17 @@ class _LoginScreenState extends State<LoginScreen> {
                       TextFormField(
                         controller: _usernameController,
                         keyboardType: TextInputType.emailAddress,
+                        style: TextStyle(
+                          color: AppTheme.texttirtiary,
+                          fontSize: 16.r,
+                        ),
                         decoration: InputDecoration(
                           labelText: 'Username',
+                          labelStyle: TextStyle(
+                            fontSize: 14.r,
+                            fontWeight: FontWeight.w400,
+                            color: AppTheme.texttirtiary,
+                          ),
                           border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(14.r),
                           ),
@@ -153,8 +162,18 @@ class _LoginScreenState extends State<LoginScreen> {
                       TextFormField(
                         controller: _passwordController,
                         obscureText: _obscurePassword,
+                        style: TextStyle(
+                          fontSize: 14.r,
+                          fontWeight: FontWeight.w400,
+                          color: AppTheme.texttirtiary,
+                        ),
                         decoration: InputDecoration(
                           labelText: 'Password',
+                          labelStyle: TextStyle(
+                            fontSize: 14.r,
+                            fontWeight: FontWeight.w400,
+                            color: AppTheme.texttirtiary,
+                          ),
                           suffixIcon: IconButton(
                             icon: Icon(
                               _obscurePassword
