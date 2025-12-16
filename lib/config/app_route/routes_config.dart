@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:scube_task_app/features/dashboard/dashboard_screen.dart';
+import 'package:scube_task_app/features/dashboard/screens/dashboard_screen.dart';
 import 'package:scube_task_app/features/log_in/log_in_screen.dart';
-import '../../features/data_scm/data_scm.dart';
+import '../../features/data_scm/screens/scm_data_screen.dart';
 import '../keys/navigators_keys.dart';
 import 'app_routes.dart';
 
@@ -32,7 +32,7 @@ final appRoute = GoRouter(
       name: AppRoutes.data_scm,
       pageBuilder: (context, state) => FadeTransitionPage(
         key: state.pageKey,
-        child: LoginScreen(),
+        child: ScmScreen(),
       ),
     ),
 

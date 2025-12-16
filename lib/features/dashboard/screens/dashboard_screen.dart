@@ -4,8 +4,8 @@ import 'package:gap/gap.dart';
 import 'package:go_router/go_router.dart';
 import 'package:scube_task_app/config/app_route/app_routes.dart';
 import 'package:sleek_circular_slider/sleek_circular_slider.dart';
-import '../../config/theme/app_theme.dart';
-import 'data/bottom_items.dart';
+import '../../../config/theme/app_theme.dart';
+import '../data/bottom_items.dart';
 
 class DashboardScreen extends StatefulWidget {
   const DashboardScreen({super.key});
@@ -318,7 +318,7 @@ class _DashboardScreenState extends State<DashboardScreen>
           children: [
             GestureDetector(
               onTap: () {
-                // context.goNamed(AppRoutes.);
+                context.goNamed(AppRoutes.data_scm);
               },
               child: _dataCard(
                 'Data View',
