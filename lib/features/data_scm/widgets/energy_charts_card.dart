@@ -20,7 +20,7 @@ class EnergyChartCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.fromLTRB(8.w, 20.h, 8.w, 8.h),
+      padding: EdgeInsets.fromLTRB(8.w, 20.h, 8.w, 0.h),
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(10.r),
@@ -51,9 +51,7 @@ class EnergyChartCard extends StatelessWidget {
             ],
           ),
           Gap(20.h),
-
-          /// Data Items
-          ...items.map((item) => EnergyDataRow(item: item),),
+          ...items.map((item) => EnergyDataRow(item: item)),
         ],
       ),
     );
@@ -68,10 +66,12 @@ class EnergyDataRow extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin:  EdgeInsets.only(bottom: 10.h),
-      padding: const EdgeInsets.all(12),
+      width: 296.w,
+      height: 42.h,
+      margin: EdgeInsets.only(bottom: 8.h),
+      padding:  EdgeInsets.fromLTRB(4.w, 4.h, 12.w, 0.h),
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(10),
+        borderRadius: BorderRadius.circular(6.r),
         border: Border.all(color: Color(0xFFB6B8D0)), // testing purpose
       ),
       child: Row(
@@ -80,42 +80,78 @@ class EnergyDataRow extends StatelessWidget {
           Column(
             children: [
               Container(
-                width: 10.w,
-                height: 10.h,
-                margin: const EdgeInsets.only(top: 4),
+                width: 8.w,
+                height: 8.h,
+                margin:  EdgeInsets.only(top: 4.h),
                 decoration: BoxDecoration(
                   color: item.color,
                   shape: BoxShape.circle,
                 ),
               ),
-
-              const SizedBox(width: 8),
-
+              Gap(2.h),
               Text(
                 item.title,
-                style: const TextStyle(fontWeight: FontWeight.w600),
+                style: TextStyle(
+                  fontWeight: FontWeight.w600,
+                  fontSize: 12.r,
+                  color: Color(0xFF04063E),
+                ),
               ),
-
-              const SizedBox(width: 8),
+              Gap(6.h),
             ],
           ),
-
-          const SizedBox(width: 8),
-
-          /// VERTICAL DIVIDER
+          Gap(8.w),
           Container(width: 1, height: 40, color: Colors.grey.shade300),
-
-          const SizedBox(width: 10),
-
+          Gap(10.w),
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(
-                'Data : ${item.dataValue} (${item.percentage})',
-                style: const TextStyle(fontSize: 12),
+              Text.rich(
+                TextSpan(
+                  children: [
+                    TextSpan(
+                      text: 'Data    : ',
+                      style: TextStyle(
+                        fontSize: 12.r,
+                        color: Color(0xFF646984),
+                        fontWeight: FontWeight.w400,
+                      ),
+                    ),
+                    TextSpan(
+                      text: '${item.dataValue} (${item.percentage})',
+                      style: TextStyle(
+                        fontSize: 12.r,
+                        color: Color(0xFF04063E),
+                        fontWeight: FontWeight.w600,
+                      ),
+                    ),
+                  ],
+                ),
               ),
               const SizedBox(height: 4),
-              Text('Cost : ${item.cost}', style: const TextStyle(fontSize: 12)),
+              Text.rich(
+                TextSpan(
+                  children: [
+                    TextSpan(
+                      text: 'Cost    : ',
+                      style: TextStyle(
+                        fontSize: 12.r,
+                        color: Color(0xFF646984),
+                        fontWeight: FontWeight.w400,
+                      ),
+                    ),
+                    TextSpan(
+                      text: '${item.cost}',
+                      style: TextStyle(
+                        fontSize: 12.r,
+                        color: Color(0xFF04063E),
+                        fontWeight: FontWeight.w600,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+
             ],
           ),
         ],

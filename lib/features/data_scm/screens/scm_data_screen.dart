@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import '../widgets/circular_slider_card.dart';
+import '../widgets/scm_body_widget.dart';
 import '../widgets/data_revenue_toggle.dart';
 
 enum ScmViewType { data, revenue }
@@ -46,7 +46,7 @@ class _ScmScreenState extends State<ScmScreen> {
                   minHeight:
                   MediaQuery.of(context).size.height - kToolbarHeight - 40.h,
                 ),
-                child: CircularSliderCard(
+                child: ScmBodyWidget(
                   viewType: viewType,
                   dataRange: dataRange,
                   onRangeChanged: (v) {

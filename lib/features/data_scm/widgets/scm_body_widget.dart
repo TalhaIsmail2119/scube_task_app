@@ -7,47 +7,62 @@ import '../data/data_cost_item.dart';
 import '../data/enerfy_data_items.dart';
 import '../screens/scm_data_screen.dart';
 import 'data_cost_info_card.dart';
+import 'date_search_row.dart';
 
-
-class CircularSliderCard extends StatefulWidget {
+class ScmBodyWidget extends StatefulWidget {
   final ScmViewType viewType;
   final DataRangeType dataRange;
   final ValueChanged<DataRangeType> onRangeChanged;
 
-  const CircularSliderCard({
+  const ScmBodyWidget({
     required this.viewType,
     required this.dataRange,
     required this.onRangeChanged,
   });
 
   @override
-  State<CircularSliderCard> createState() => _CircularSliderCardState();
+  State<ScmBodyWidget> createState() => _ScmBodyWidgetState();
 }
 
-class _CircularSliderCardState extends State<CircularSliderCard> {
-  double powerPercent = 55.00;
+class _ScmBodyWidgetState extends State<ScmBodyWidget> {
+  double dataPercent = 55.00;
+  double customDataPercent = 57.00;
+  double revenueAmount = 8897455.00;
 
   @override
   Widget build(BuildContext context) {
+    final isToday = widget.dataRange == DataRangeType.today;
     return Container(
-      padding:EdgeInsets.only(left: 24.w,top: 58.h,right: 24.w),
+      padding: EdgeInsets.only(left: 24.w, top: 58.h, right: 24.w),
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(20.r),
       ),
       child: Column(
         children: [
-          PowerIndicator(
-            powerValue: powerPercent,
-            onChanged: (value) {
-              setState(() => powerPercent = value);
-            },
-          ),
-          Gap(40.h),
 
           if (widget.viewType == ScmViewType.data) ...[
+            PowerIndicator(
+              powerValue: isToday ? dataPercent : customDataPercent,
+              min: 0,
+              max: 90,
+              angleRange: 240,
+              startAngle: 150,
+              centerValue: (isToday ? dataPercent : customDataPercent)
+                  .toStringAsFixed(2),
+              unitText: 'kWh/Sqft',
+              onChanged: (value) {
+                setState(() {
+                  if (isToday) {
+                    dataPercent = value;
+                  } else {
+                    customDataPercent = value;
+                  }
+                });
+              },
+            ),
             Padding(
-              padding:  EdgeInsets.only(left: 32.w,right:34.w ),
+              padding: EdgeInsets.only(left: 32.w, right: 34.w),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
@@ -73,7 +88,6 @@ class _CircularSliderCardState extends State<CircularSliderCard> {
                                 ? FontWeight.w600
                                 : FontWeight.w400,
                             fontSize: 14.r,
-
                           ),
                         ),
                       ],
@@ -106,35 +120,23 @@ class _CircularSliderCardState extends State<CircularSliderCard> {
                       ],
                     ),
                   ),
-
                 ],
               ),
             ),
-            Gap(20.h),
+            isToday? Gap(20.h) : Gap(8.h),
 
             // Custom Date Data -- Search Row
             if (widget.dataRange == DataRangeType.custom) ...[
-              const SizedBox(height: 16),
-              Container(
-                height: 120,
-                width: double.infinity,
-                margin:
-                const EdgeInsets.symmetric(horizontal: 24),
-                decoration: BoxDecoration(
-                  color: Colors.red,
-                  borderRadius: BorderRadius.circular(12),
-                ),
-              ),
+              DateSearchRow(),
+              Gap(6.h),
             ],
-            Gap(20.h),
-
             EnergyChartCard(
               chartTitle: 'Energy Chart',
               powerValue: '5.53',
               items: const [
                 EnergyDataItem(
                   title: 'Data A',
-                  color: Colors.red,
+                  color: Colors.blue,
                   dataValue: '2798.50',
                   percentage: '29.53%',
                   cost: '35689 ৳',
@@ -148,7 +150,7 @@ class _CircularSliderCardState extends State<CircularSliderCard> {
                 ),
                 EnergyDataItem(
                   title: 'Data C',
-                  color: Colors.purple,
+                  color: Colors.deepPurple,
                   dataValue: '6598.36',
                   percentage: '38.90%',
                   cost: '5698756 ৳',
@@ -163,9 +165,9 @@ class _CircularSliderCardState extends State<CircularSliderCard> {
               ],
             ),
 
-            /// Custom Data Data Enable Section
+            /// ---------------- Custom Date Data  Section ----------------
             if (widget.dataRange == DataRangeType.custom) ...[
-              Gap(20.h),
+              Gap(12.h),
               EnergyChartCard(
                 chartTitle: 'Energy Chart',
                 powerValue: '5.53',
@@ -200,12 +202,27 @@ class _CircularSliderCardState extends State<CircularSliderCard> {
                   ),
                 ],
               ),
+              Gap(50.h),
             ],
           ]
 
           /// ---------------- Revenue View ---------------------------
           else ...[
-            const SizedBox(height: 24),
+            PowerIndicator(
+              powerValue: revenueAmount,
+              min: 1000000,
+              max: 11500000,
+              angleRange: 240,
+              startAngle: 150,
+              centerValue: revenueAmount.round().toString(),
+              unitText: 'tk',
+              onChanged: (value) {
+                setState(() {
+                  revenueAmount = value;
+                });
+              },
+            ),
+            // const SizedBox(height: 24),
             DataCostInfoCard(
               items: [
                 DataCostItem(
@@ -237,17 +254,6 @@ class _CircularSliderCardState extends State<CircularSliderCard> {
                   costValue: '35689',
                 ),
               ],
-            ),
-            Gap(24.h),
-            Container(
-              height: 160.h,
-              width: double.infinity,
-              margin:
-              const EdgeInsets.symmetric(horizontal: 24),
-              decoration: BoxDecoration(
-                color: Colors.blue,
-                borderRadius: BorderRadius.circular(12),
-              ),
             ),
           ],
         ],

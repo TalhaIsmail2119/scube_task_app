@@ -1,7 +1,9 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:gap/gap.dart';
 
+import '../../../config/theme/app_theme.dart';
 import '../data/data_cost_item.dart';
 
 class DataCostInfoCard extends StatefulWidget {
@@ -21,7 +23,7 @@ class DataCostInfoCard extends StatefulWidget {
 class _DataCostInfoCardState extends State<DataCostInfoCard> {
   late bool _isExpanded;
 
-  static const _borderColor = Color(0xFF9AA5C4);
+  static const _borderColor = Color(0xFFA5A7B9);
 
   @override
   void initState() {
@@ -38,23 +40,23 @@ class _DataCostInfoCardState extends State<DataCostInfoCard> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.all(16.w),
       decoration: BoxDecoration(
+        color: Colors.white,
         borderRadius: BorderRadius.circular(12.r),
-        border: Border.all(color: _borderColor),
+        border: Border.all(color: AppTheme.borderColor),
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          /// HEADER (no side/top borders)
           Container(
-            padding: EdgeInsets.all(16.w),
+            padding: EdgeInsets.fromLTRB(12.w, 9.h, 12.w, 9.h),
             decoration: BoxDecoration(
               border: Border(
                 bottom: _isExpanded
-                    ? const BorderSide(color: _borderColor)
+                    ? const BorderSide(color: AppTheme.borderColor)
                     : BorderSide.none,
               ),
+              borderRadius: BorderRadius.circular(12.r),
             ),
             child: Row(
               children: [
@@ -67,7 +69,7 @@ class _DataCostInfoCardState extends State<DataCostInfoCard> {
                 Text(
                   'Data & Cost Info',
                   style: TextStyle(
-                    fontSize: 14.sp,
+                    fontSize: 14.r,
                     fontWeight: FontWeight.w600,
                     color: const Color(0xFF1F2A5A),
                   ),
@@ -84,8 +86,8 @@ class _DataCostInfoCardState extends State<DataCostInfoCard> {
                     ),
                     child: Icon(
                       _isExpanded
-                          ? Icons.keyboard_arrow_up
-                          : Icons.keyboard_arrow_down,
+                          ? Icons.keyboard_double_arrow_up
+                          : Icons.keyboard_double_arrow_down,
                       color: Colors.white,
                       size: 20,
                     ),
@@ -98,13 +100,13 @@ class _DataCostInfoCardState extends State<DataCostInfoCard> {
           /// CONTENT
           if (_isExpanded)
             Padding(
-              padding: EdgeInsets.all(16.w),
+              padding: EdgeInsets.fromLTRB(12.w, 14.h, 12.w, 1.h),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: widget.items
                     .map(
                       (item) => Padding(
-                    padding: EdgeInsets.only(bottom: 14.h),
+                    padding: EdgeInsets.only(bottom: 12.h),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
@@ -127,7 +129,7 @@ class _DataCostInfoCardState extends State<DataCostInfoCard> {
                             ],
                           ),
                         ),
-                        SizedBox(height: 4.h),
+                        Gap(4.h),
                         RichText(
                           text: TextSpan(
                             style: TextStyle(

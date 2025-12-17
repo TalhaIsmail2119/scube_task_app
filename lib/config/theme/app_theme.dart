@@ -7,6 +7,7 @@ class AppTheme {
   static const Color primaryColor = Color(0xFF0096FC);
   static const Color secondaryColor = Color(0xFF43A047);
   static const Color accentColor = Color(0xFFFFC107);
+  static const Color borderColor = Color(0xFFA5A7B9);
 
   // ===== Backgrounds =====
   static const Color scaffoldBackground = Color(0xFFD9E4F1);
