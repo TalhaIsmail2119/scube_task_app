@@ -32,9 +32,10 @@ class _LoginScreenState extends State<LoginScreen> {
 
   void _onLogin() {
     FocusScope.of(context).unfocus();
-    if (_formKey.currentState!.validate()) {
-      context.goNamed(AppRoutes.dashboard);
-    }
+    context.goNamed(AppRoutes.dashboard);
+    // if (_formKey.currentState!.validate()) {
+    //   context.goNamed(AppRoutes.dashboard);
+    // }
   }
 
   @override
@@ -44,7 +45,6 @@ class _LoginScreenState extends State<LoginScreen> {
       backgroundColor: AppTheme.primaryBackground,
       body: Stack(
         children: [
-          /// ---------------- Header Section ----------------
           Container(
             height: 0.42.sh,
             width: double.infinity,
@@ -81,8 +81,6 @@ class _LoginScreenState extends State<LoginScreen> {
               ],
             ),
           ),
-
-          /// ---------------- Login Section ----------------
           Align(
             alignment: Alignment.bottomCenter,
             child: Container(
@@ -92,13 +90,6 @@ class _LoginScreenState extends State<LoginScreen> {
               decoration: BoxDecoration(
                 color: AppTheme.surfaceBackground,
                 borderRadius: BorderRadius.vertical(top: Radius.circular(32.r)),
-                // boxShadow: [
-                //   BoxShadow(
-                //     color: Colors.black.withOpacity(0.08),
-                //     blurRadius: 20,
-                //     offset: const Offset(0, -6),
-                //   ),
-                // ],
               ),
               child: SingleChildScrollView(
                 keyboardDismissBehavior:

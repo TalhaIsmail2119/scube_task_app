@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:go_router/go_router.dart';
+import '../../../config/app_route/app_routes.dart';
+import '../../../shared/custom_app_bar.dart';
 import '../widgets/scm_body_widget.dart';
 import '../widgets/data_revenue_toggle.dart';
 
@@ -20,20 +23,10 @@ class _ScmScreenState extends State<ScmScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        elevation: 0,
-        backgroundColor: Colors.white,
-        leading: const BackButton(color: Colors.black),
-        title: const Text(
-          'SCM',
-          style: TextStyle(color: Colors.black, fontWeight: FontWeight.w600),
-        ),
-        actions: const [
-          Padding(
-            padding: EdgeInsets.only(right: 16),
-            child: Icon(Icons.notifications_none, color: Colors.black),
-          ),
-        ],
+      appBar: CustomAppBar(
+        onBackPressed: () {
+          context.goNamed(AppRoutes.dashboard);
+        },
       ),
       body: Stack(
         clipBehavior: Clip.none,

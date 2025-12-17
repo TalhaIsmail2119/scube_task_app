@@ -18,6 +18,7 @@ class MyApp extends StatelessWidget {
     return ScreenUtilInit(
       designSize: const Size(360, 800),
       child: MaterialApp.router(
+        debugShowCheckedModeBanner: false,
         title: 'Scube Task App',
         routerConfig: appRoute,
         theme: AppThemeConfig.lightTheme,

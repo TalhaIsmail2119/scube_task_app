@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:scube_task_app/features/dashboard/screens/dashboard_screen.dart';
+import 'package:scube_task_app/features/dashboard/screens/data_loading_screen.dart';
 import 'package:scube_task_app/features/log_in/log_in_screen.dart';
 import '../../features/data_scm/screens/scm_data_screen.dart';
 import '../keys/navigators_keys.dart';
@@ -35,6 +36,14 @@ final appRoute = GoRouter(
         child: ScmScreen(),
       ),
     ),
+    GoRoute(
+      path: AppRoutes.data_loaading,
+      name: AppRoutes.data_loaading,
+      pageBuilder: (context, state) => FadeTransitionPage(
+        key: state.pageKey,
+        child: DataLoadignScreen(),
+      ),
+    ),
 
 
 
@@ -52,5 +61,5 @@ class FadeTransitionPage extends CustomTransitionPage<void> {
     ),
   );
 
-  static final _curveTween = CurveTween(curve: Curves.easeIn);
+  static final _curveTween = CurveTween(curve: Curves.ease);
 }
