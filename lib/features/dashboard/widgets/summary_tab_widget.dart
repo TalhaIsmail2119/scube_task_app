@@ -36,7 +36,7 @@ class SummaryTab extends StatelessWidget {
         Gap(4.h),
         Divider(thickness: 2.r, height: 2.r, color: Colors.grey.shade300),
         Gap(8.h),
-        DataSectionWidget(),
+        Expanded(child: DataSectionWidget()),
       ],
     );
   }

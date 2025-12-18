@@ -26,9 +26,9 @@ class DataRevenueToggle extends StatelessWidget {
         )
       ),
       child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
           _item('Data View', ScmViewType.data),
-          Gap(50.w),
           _item('Revenue View', ScmViewType.revenue),
         ],
       ),

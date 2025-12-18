@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'app_theme.dart';
+import 'package:google_fonts/google_fonts.dart';
+
 
 class AppThemeConfig {
   AppThemeConfig._();
@@ -100,9 +102,11 @@ class AppThemeConfig {
     ),
 
     // ===== TextTheme (optional) =====
-    textTheme: const TextTheme(
-      bodyLarge: TextStyle(color: AppTheme.textPrimary),
-      bodyMedium: TextStyle(color: AppTheme.textSecondary),
+    textTheme: GoogleFonts.interTextTheme(
+      const TextTheme(
+        bodyLarge: TextStyle(color: AppTheme.textPrimary),
+        bodyMedium: TextStyle(color: AppTheme.textSecondary),
+      ),
     ),
   );
 

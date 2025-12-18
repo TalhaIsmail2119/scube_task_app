@@ -67,7 +67,7 @@ class EnergyDataRow extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: 296.w,
-      height: 42.h,
+      //height: 42.h,
       margin: EdgeInsets.only(bottom: 8.h),
       padding:  EdgeInsets.fromLTRB(4.w, 4.h, 12.w, 0.h),
       decoration: BoxDecoration(
@@ -101,7 +101,7 @@ class EnergyDataRow extends StatelessWidget {
             ],
           ),
           Gap(8.w),
-          Container(width: 1, height: 40, color: Colors.grey.shade300),
+          Container(width: 1, height: 40.h, color: Colors.grey.shade300),
           Gap(10.w),
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -128,7 +128,7 @@ class EnergyDataRow extends StatelessWidget {
                   ],
                 ),
               ),
-              const SizedBox(height: 4),
+              Gap(4.h),
               Text.rich(
                 TextSpan(
                   children: [

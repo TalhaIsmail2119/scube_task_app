@@ -6,7 +6,7 @@ import 'package:scube_task_app/config/app_route/app_routes.dart';
 import 'package:scube_task_app/features/dashboard/widgets/bottom_grid_widget.dart';
 import 'package:scube_task_app/features/dashboard/widgets/summary-container.dart';
 import 'package:scube_task_app/shared/custom_app_bar.dart';
-import '../data/bottom_items.dart';
+import '../data/bottom_grids_items.dart';
 
 class DashboardScreen extends StatefulWidget {
   const DashboardScreen({super.key});
