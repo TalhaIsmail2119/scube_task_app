@@ -3,7 +3,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';
 import 'package:go_router/go_router.dart';
 import 'package:scube_task_app/shared/custom_app_bar.dart';
-
 import '../../../config/app_route/app_routes.dart';
 
 class DataLoadignScreen extends StatelessWidget {
@@ -27,7 +26,6 @@ class DataLoadignScreen extends StatelessWidget {
             borderRadius: BorderRadius.circular(12.r),
           ),
           child: Column(
-           // mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Image(
                 image:  AssetImage('assets/images/data_laod_image.png'),

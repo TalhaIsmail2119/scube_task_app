@@ -67,7 +67,6 @@ class EnergyDataRow extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: 296.w,
-      //height: 42.h,
       margin: EdgeInsets.only(bottom: 8.h),
       padding:  EdgeInsets.fromLTRB(4.w, 4.h, 12.w, 0.h),
       decoration: BoxDecoration(

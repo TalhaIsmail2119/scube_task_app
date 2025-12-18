@@ -49,13 +49,10 @@ class DateSearchRow extends StatelessWidget {
       padding: EdgeInsets.all(6.w),
       child: Row(
         children: [
-          /// From Date
           _dateField(hint: 'From Date'),
           Gap(4.w),
-          /// To Date
           _dateField(hint: 'To Date'),
           Gap(4.w),
-          /// Search Button
           Container(
             height: 36.h,
             width: 34.w,

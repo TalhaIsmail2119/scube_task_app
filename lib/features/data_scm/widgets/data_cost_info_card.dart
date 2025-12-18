@@ -23,8 +23,6 @@ class DataCostInfoCard extends StatefulWidget {
 class _DataCostInfoCardState extends State<DataCostInfoCard> {
   late bool _isExpanded;
 
-  static const _borderColor = Color(0xFFA5A7B9);
-
   @override
   void initState() {
     super.initState();

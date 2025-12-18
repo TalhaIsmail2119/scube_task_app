@@ -142,13 +142,6 @@ class AppThemeConfig {
         side: BorderSide(color: AppTheme.primaryColor),
       ),
     ),
-    // cardTheme: CardTheme(
-    //   color: const Color(0xFF1E1E1E),
-    //   elevation: 4,
-    //   shape: RoundedRectangleBorder(
-    //     borderRadius: BorderRadius.circular(AppTheme.borderRadius),
-    //   ),
-    // ),
     cardTheme: CardThemeData(
       color: AppTheme.cardBackground,
       elevation: 4,

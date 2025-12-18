@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:gap/gap.dart';
 import 'package:scube_task_app/features/dashboard/widgets/top_bar_tabs.dart';
 import 'summary_tab_widget.dart';
 import 'sld_tab_widget.dart';
